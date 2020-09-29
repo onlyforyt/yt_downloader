@@ -20,4 +20,3 @@ def catch_all(path):
 		return jsonify(giveMp4(request.args.get('mp4')))
 	elif request.args.get('mp4') is None:
 		return jsonify(giveMp3(request.args.get('mp3')))
-app.run(debug=True)

@@ -1,0 +1,5 @@
+{
+  "version": 0,
+  "name": "yt_dl",
+  "builds": [{ "src": "main.py", "use": "@now/python" }]
+}

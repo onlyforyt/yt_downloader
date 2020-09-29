@@ -15,8 +15,12 @@ def giveMp3(query):
 @app.route('/<path:path>')
 def catch_all(path):
 	if request.args.get('mp3') is None and request.args.get('mp4') is None:
-		return "<h1> Please provide necessary mp3 or mp4 queries"
+		res= "<h1> Please provide necessary mp3 or mp4 queries"
 	elif request.args.get('mp3') is None:
-		return jsonify(giveMp4(request.args.get('mp4')))
+		res=jsonify(giveMp4(request.args.get('mp4')))
 	elif request.args.get('mp4') is None:
-		return jsonify(giveMp3(request.args.get('mp3')))
+		res=jsonify(giveMp3(request.args.get('mp3')))
+	res.headers.add('Access-Control-Allow-Origin', '*')
+	res.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+	res.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+	return res
